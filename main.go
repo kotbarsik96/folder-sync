@@ -91,6 +91,8 @@ func start() {
 		return nil
 	})
 
+	appNotification.AppStarted()
+
 	<-done
 }
 
@@ -246,6 +248,7 @@ func startSync(ectx *eventContext) {
 
 	if ectx.ctx.Err() == nil {
 		logfile.Writef("Синхронизация завершена полностью: %v", time.Now())
+		appNotification.Synchronized()
 	}
 }
 
